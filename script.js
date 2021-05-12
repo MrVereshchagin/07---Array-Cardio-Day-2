@@ -17,7 +17,24 @@ const people = [
 
   // Some and Every Checks
   // Array.prototype.some() // is at least one person 19 or older?
+  const isSomebodyAdult = people.some(person => {
+      const currentYear = (new Date()).getFullYear(); // зачем new Date в скобках?
+      if(currentYear - person.year >= 19) {
+        return true; 
+      }
+  });
+
+  console.log(isSomebodyAdult);
+
   // Array.prototype.every() // is everyone 19 or older?
+  const isAllAdults = people.every(person => {
+    const currentYear = (new Date()).getFullYear(); // можно просто вычесть из текущего года person.year
+    if(currentYear - person.year >= 19) {
+      return true; 
+    }
+});
+
+console.log(isAllAdults);
 
   // Array.prototype.find()
   // Find is like filter, but instead returns just the one you are looking for
